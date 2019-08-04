@@ -1,0 +1,8 @@
+# Syntax
+mongoimport --type csv --headerline --db mflix --collection movies_initial --host "<CLUSTER>/<SEED_LIST>" --authenticationDatabase admin --ssl --username analytics --password analytics-password --file movies_initial.csv
+
+# Movies initial
+mongoimport --type csv --headerline --db mflix --collection movies_initial --host mflix-shard-0/mflix-shard-00-00-5htr0.mongodb.net:27017,mflix-shard-00-01-5htr0.mongodb.net:27017,mflix-shard-00-02-5htr0.mongodb.net:2701 --authenticationDatabase admin --ssl --username analytics --password analytics-password --file movies_initial.csv
+
+# Movies
+mongoimport --type csv --headerline --db mflix --collection movies --host mflix-shard-0/mflix-shard-00-00-5htr0.mongodb.net:27017,mflix-shard-00-01-5htr0.mongodb.net:27017,mflix-shard-00-02-5htr0.mongodb.net:2701 --authenticationDatabase admin --ssl --username analytics --password analytics-password --file movies_initial.csv
